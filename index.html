@@ -1,0 +1,1199 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>我爱我的祖国 - 爱国主义主题网站</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.8/dist/chart.umd.min.js"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;700;900&family=Ma+Shan+Zheng&family=Noto+Serif+SC:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/main.css">
+  <link rel="stylesheet" href="css/achievements.css">
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            primary: '#D81E06',     // 中国红
+            secondary: '#C91F37',   // 国旗红
+            accent: '#FFD700',      // 金色
+            dark: '#1A1A2E',        // 深蓝黑色
+            light: '#F5F5F5',       // 浅灰色
+            rice: '#F5F0E6',        // 宣纸色
+            ink: '#2D2D2A',         // 墨色
+            ancient: '#8B4513',     // 古代史-棕色
+            medieval: '#9E2A2B',    // 中古史-暗红
+            modern: '#1A3A59',      // 近代史-靛蓝
+            contemporary: '#0F515C' // 现代史-深青
+          },
+          fontFamily: {
+            sans: ['Noto Sans SC', 'sans-serif'],
+            calligraphy: ['"Ma Shan Zheng"', 'cursive'],
+            song: ['"Noto Serif SC"', 'serif']
+          },
+          screens: {
+            'xs': '475px',
+            'sm': '640px',
+            'md': '768px',
+            'lg': '1024px',
+            'xl': '1280px',
+            '2xl': '1536px',
+          },
+        },
+      }
+    }
+  </script>
+  
+</head>
+<body class="font-sans bg-light text-dark overflow-x-hidden scroll-smooth">
+  <!-- 导航栏 - 完全响应式优化版 -->
+  <nav id="navbar" class="fixed w-full z-50 transition-all duration-500 bg-gradient-to-r from-primary/95 via-primary/90 to-secondary/95 backdrop-blur-lg shadow-lg">
+    <div class="max-w-7xl mx-auto px-3 sm:px-4 lg:px-6 py-2 sm:py-3 flex justify-between items-center">
+      <!-- 网站标志 - 完全响应式优化 -->
+      <a href="#" class="flex items-center space-x-2 group min-w-0 flex-shrink-0">
+        <div class="bg-accent/20 rounded-full p-1.5 sm:p-2 group-hover:bg-accent/30 transition-all duration-300">
+          <i class="fa fa-flag text-accent text-base sm:text-xl lg:text-2xl group-hover:scale-110 transition-transform duration-300"></i>
+        </div>
+        <div class="hidden xs:block min-w-0">
+          <span class="text-white text-sm sm:text-lg lg:text-xl font-bold text-shadow block truncate">我爱我的祖国</span>
+          <span class="text-accent/80 text-xs font-medium block mt-0.5 truncate">我爱祖国和人民</span>
+        </div>
+        <div class="xs:hidden">
+          <span class="text-white text-sm font-bold text-shadow truncate">我爱祖国</span>
+        </div>
+      </a>
+      
+      <!-- 桌面导航 - 优化间距和响应式 -->
+      <div class="hidden md:flex space-x-0.5 lg:space-x-1 bg-white/10 backdrop-blur-sm rounded-full p-0.5 lg:p-1 ml-2 lg:ml-4">
+        <a href="#home" class="nav-link px-3 lg:px-4 xl:px-6 py-1.5 lg:py-2 rounded-full text-white hover:bg-white/20 transition-all duration-300 font-medium flex items-center text-xs lg:text-sm xl:text-base whitespace-nowrap">
+          <i class="fa fa-home mr-1 lg:mr-2 text-xs lg:text-sm"></i>首页
+        </a>
+        <a href="#chinese-history" class="nav-link px-3 lg:px-4 xl:px-6 py-1.5 lg:py-2 rounded-full text-white hover:bg-white/20 transition-all duration-300 font-medium flex items-center text-xs lg:text-sm xl:text-base whitespace-nowrap">
+          <i class="fa fa-history mr-1 lg:mr-2 text-xs lg:text-sm"></i>华夏五千年
+        </a>
+        <a href="#achievement-dashboard" class="nav-link px-3 lg:px-4 xl:px-6 py-1.5 lg:py-2 rounded-full text-white hover:bg-white/20 transition-all duration-300 font-medium flex items-center text-xs lg:text-sm xl:text-base whitespace-nowrap">
+          <i class="fa fa-chart-line mr-1 lg:mr-2 text-xs lg:text-sm"></i>国家成就
+        </a>
+        <a href="#quotes" class="nav-link px-3 lg:px-4 xl:px-6 py-1.5 lg:py-2 rounded-full text-white hover:bg-white/20 transition-all duration-300 font-medium flex items-center text-xs lg:text-sm xl:text-base whitespace-nowrap">
+          <i class="fa fa-quote-left mr-1 lg:mr-2 text-xs lg:text-sm"></i>爱国名言
+        </a>
+        <a href="#contact" class="nav-link px-3 lg:px-4 xl:px-6 py-1.5 lg:py-2 rounded-full text-white hover:bg-white/20 transition-all duration-300 font-medium flex items-center text-xs lg:text-sm xl:text-base whitespace-nowrap">
+          <i class="fa fa-envelope mr-1 lg:mr-2 text-xs lg:text-sm"></i>联系我们
+        </a>
+      </div>
+      
+      <!-- 移动端菜单按钮 -->
+      <button id="menuBtn" class="md:hidden bg-white/10 hover:bg-white/20 text-white rounded-full w-8 h-8 sm:w-10 sm:h-10 flex items-center justify-center transition-all duration-300 shadow-lg ml-2">
+        <i class="fa fa-bars text-sm sm:text-lg"></i>
+      </button>
+    </div>
+
+    <!-- 移动端菜单 -->
+    <div id="mobileMenu" class="md:hidden fixed inset-0 z-50 bg-dark/95 backdrop-blur-lg transform translate-x-full transition-transform duration-500 ease-in-out">
+      <div class="flex flex-col h-full">
+        <!-- 菜单头部 -->
+        <div class="flex justify-between items-center p-3 sm:p-4 border-b border-white/10">
+          <div class="flex items-center space-x-2">
+            <div class="bg-accent/20 rounded-full p-1.5 sm:p-2">
+              <i class="fa fa-flag text-accent text-lg sm:text-xl"></i>
+            </div>
+            <span class="text-white text-base sm:text-lg font-bold">我爱我的祖国</span>
+          </div>
+          <button id="closeMenu" class="bg-white/10 hover:bg-white/20 text-white rounded-full w-8 h-8 sm:w-10 sm:h-10 flex items-center justify-center transition-all duration-300">
+            <i class="fa fa-times text-sm sm:text-lg"></i>
+          </button>
+        </div>
+        
+        <!-- 菜单内容 -->
+        <div class="flex-1 flex flex-col justify-center px-4 sm:px-6 space-y-4 sm:space-y-6">
+          <a href="#home" class="nav-link text-white text-lg sm:text-xl font-medium py-2.5 sm:py-3 px-3 sm:px-4 rounded-lg hover:bg-white/10 transition-all duration-300 flex items-center">
+            <i class="fa fa-home mr-2 sm:mr-3 text-accent text-sm sm:text-base"></i>首页
+          </a>
+          <a href="#chinese-history" class="nav-link text-white text-lg sm:text-xl font-medium py-2.5 sm:py-3 px-3 sm:px-4 rounded-lg hover:bg-white/10 transition-all duration-300 flex items-center">
+            <i class="fa fa-history mr-2 sm:mr-3 text-accent text-sm sm:text-base"></i>华夏五千年
+          </a>
+          <a href="#achievement-dashboard" class="nav-link text-white text-lg sm:text-xl font-medium py-2.5 sm:py-3 px-3 sm:px-4 rounded-lg hover:bg-white/10 transition-all duration-300 flex items-center">
+            <i class="fa fa-chart-line mr-2 sm:mr-3 text-accent text-sm sm:text-base"></i>国家成就
+          </a>
+          <a href="#quotes" class="nav-link text-white text-lg sm:text-xl font-medium py-2.5 sm:py-3 px-3 sm:px-4 rounded-lg hover:bg-white/10 transition-all duration-300 flex items-center">
+            <i class="fa fa-quote-left mr-2 sm:mr-3 text-accent text-sm sm:text-base"></i>爱国名言
+          </a>
+          <a href="#contact" class="nav-link text-white text-lg sm:text-xl font-medium py-2.5 sm:py-3 px-3 sm:px-4 rounded-lg hover:bg-white/10 transition-all duration-300 flex items-center">
+            <i class="fa fa-envelope mr-2 sm:mr-3 text-accent text-sm sm:text-base"></i>联系我们
+          </a>
+        </div>
+        
+        <!-- 菜单底部 -->
+        <div class="p-4 sm:p-6 border-t border-white/10">
+          <p class="text-white/70 text-xs sm:text-sm text-center">爱国主义主题网站</p>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- 英雄轮播区 -->
+  <section id="home" class="relative h-screen overflow-hidden">
+    <!-- 轮播容器 -->
+    <div id="heroCarousel" class="relative w-full h-full">
+      <!-- 轮播项1 - 中国梦 -->
+      <div class="hero-slide absolute inset-0 transition-all duration-1000 ease-in-out" data-slide="0">
+        <div class="absolute inset-0 z-0">
+          <img src="images/R-C.jpg" alt="天安门升旗" class="w-full h-full object-cover">
+          <div class="absolute inset-0 bg-gradient-to-r from-dark/70 to-primary/30 mix-blend-multiply"></div>
+        </div>
+        <div class="container mx-auto px-4 z-20 text-center h-full flex flex-col justify-center relative">
+          <h1 class="text-[clamp(2.5rem,8vw,5rem)] font-black text-white mb-6 leading-tight text-shadow-lg animate-float">
+            <span class="text-accent">"实现中华民族伟大复兴的中国梦"</span>
+          </h1>
+          <p class="text-[clamp(1rem,3vw,1.5rem)] text-white/90 max-w-3xl mx-auto mb-10 text-shadow">
+            —— 习近平
+          </p>
+          <div class="flex flex-wrap justify-center gap-4">
+            <a href="#chinese-history" class="px-8 py-3 bg-primary hover:bg-primary/90 text-white font-semibold rounded-lg shadow-lg transform hover:-translate-y-1 transition-all duration-300">
+              了解历史 <i class="fa fa-history ml-2"></i>
+            </a>
+            <a href="#achievement-dashboard" class="px-8 py-3 bg-transparent border-2 border-white hover:bg-white/10 text-white font-semibold rounded-lg shadow-lg transform hover:-translate-y-1 transition-all duration-300">
+              国家成就 <i class="fa fa-chart-line ml-2"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+      
+      <!-- 轮播项2 - 人民至上 -->
+      <div class="hero-slide absolute inset-0 transition-all duration-1000 ease-in-out hidden">
+        <div class="absolute inset-0 z-0">
+          <img src="images/B006918F38D86281151BA4FB84D9D117.png" alt="天安门广场" class="w-full h-full object-cover">
+          <div class="absolute inset-0 bg-gradient-to-r from-dark/70 to-secondary/30 mix-blend-multiply"></div>
+        </div>
+        <div class="container mx-auto px-4 z-20 text-center h-full flex flex-col justify-center relative">
+          <h1 class="text-[clamp(2.5rem,8vw,5rem)] font-black text-white mb-6 leading-tight text-shadow-lg">
+            <span class="text-accent">"人民对美好生活的向往，就是我们的奋斗目标"</span>
+          </h1>
+          <p class="text-[clamp(1rem,3vw,1.5rem)] text-white/90 max-w-3xl mx-auto mb-10 text-shadow">
+            —— 习近平
+          </p>
+          <div class="flex flex-wrap justify-center gap-4">
+            <a href="#quotes" class="px-8 py-3 bg-primary hover:bg-primary/90 text-white font-semibold rounded-lg shadow-lg transform hover:-translate-y-1 transition-all duration-300">
+              爱国名言 <i class="fa fa-quote-left ml-2"></i>
+            </a>
+            <a href="#contact" class="px-8 py-3 bg-transparent border-2 border-white hover:bg-white/10 text-white font-semibold rounded-lg shadow-lg transform hover:-translate-y-1 transition-all duration-300">
+              联系我们 <i class="fa fa-envelope ml-2"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+      
+      <!-- 轮播项3 - 新时代 -->
+      <div class="hero-slide absolute inset-0 transition-all duration-1000 ease-in-out hidden">
+        <div class="absolute inset-0 z-0">
+          <img src="images/9F7BBCFC3A7A5718FE2EFA5C35D6DBA7.png" alt="新时代" class="w-full h-full object-cover">
+          <div class="absolute inset-0 bg-gradient-to-r from-dark/70 to-accent/30 mix-blend-multiply"></div>
+        </div>
+        <div class="container mx-auto px-4 z-20 text-center h-full flex flex-col justify-center relative">
+          <h1 class="text-[clamp(2.5rem,8vw,5rem)] font-black text-white mb-6 leading-tight text-shadow-lg">
+            <span class="text-accent">"中国特色社会主义进入了新时代"</span>
+          </h1>
+          <p class="text-[clamp(1rem,3vw,1.5rem)] text-white/90 max-w-3xl mx-auto mb-10 text-shadow">
+            —— 习近平
+          </p>
+          <div class="flex flex-wrap justify-center gap-4">
+            <a href="#chinese-history" class="px-8 py-3 bg-primary hover:bg-primary/90 text-white font-semibold rounded-lg shadow-lg transform hover:-translate-y-1 transition-all duration-300">
+              历史沿革 <i class="fa fa-book ml-2"></i>
+            </a>
+            <a href="#achievement-dashboard" class="px-8 py-3 bg-transparent border-2 border-white hover:bg-white/10 text-white font-semibold rounded-lg shadow-lg transform hover:-translate-y-1 transition-all duration-300">
+              国家成就 <i class="fa fa-chart-line ml-2"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <!-- 轮播控制按钮 -->
+    <button id="prevSlide" class="absolute left-4 top-1/2 transform -translate-y-1/2 z-20 bg-white/20 hover:bg-white/30 text-white rounded-full w-10 h-10 sm:w-12 sm:h-12 flex items-center justify-center transition-all duration-300 shadow-lg backdrop-blur-sm">
+      <i class="fa fa-chevron-left text-sm sm:text-base"></i>
+    </button>
+    <button id="nextSlide" class="absolute right-4 top-1/2 transform -translate-y-1/2 z-20 bg-white/20 hover:bg-white/30 text-white rounded-full w-10 h-10 sm:w-12 sm:h-12 flex items-center justify-center transition-all duration-300 shadow-lg backdrop-blur-sm">
+      <i class="fa fa-chevron-right text-sm sm:text-base"></i>
+    </button>
+    
+    <!-- 轮播指示器 -->
+    <div class="absolute bottom-6 left-1/2 transform -translate-x-1/2 z-20 flex space-x-2">
+      <button class="carousel-indicator w-3 h-3 rounded-full bg-white/60 hover:bg-white transition-all duration-300" data-slide="0"></button>
+      <button class="carousel-indicator w-3 h-3 rounded-full bg-white/30 hover:bg-white/60 transition-all duration-300" data-slide="1"></button>
+      <button class="carousel-indicator w-3 h-3 rounded-full bg-white/30 hover:bg-white/60 transition-all duration-300" data-slide="2"></button>
+    </div>
+    
+    <!-- 滚动提示 -->
+    <div class="absolute bottom-8 left-1/2 transform -translate-x-1/2 text-white animate-bounce cursor-pointer z-20" onclick="document.getElementById('chinese-history').scrollIntoView({behavior: 'smooth'})">
+      <i class="fa fa-angle-down text-3xl"></i>
+    </div>
+  </section>
+
+  
+
+  <!-- 华夏历史时间线 -->
+  <section id="chinese-history" class="py-20 bg-rice bg-rice-paper relative overflow-hidden">
+    <!-- 水墨装饰元素 -->
+    <div class="ink-splash top-20 left-10 w-64 h-64 bg-ink rounded-full blur-3xl"></div>
+    <div class="ink-splash top-1/3 right-20 w-80 h-80 bg-ink rounded-full blur-3xl"></div>
+    <div class="ink-splash bottom-20 left-1/4 w-72 h-72 bg-ink rounded-full blur-3xl"></div>
+    
+    <div class="container mx-auto px-4 relative z-10">
+      <div class="text-center mb-16">
+        <div class="border-dragon p-1 mb-6 inline-block">
+          <h2 class="font-calligraphy text-[clamp(2rem,5vw,3.5rem)] text-ink py-4 px-6 bg-rice/90 inline-block transform -rotate-1">
+            华夏历史时间线
+          </h2>
+        </div>
+        <p class="text-lg md:text-xl max-w-3xl mx-auto italic text-ink/80">
+          上下五千年，纵横九万里，见证华夏文明的辉煌历程
+        </p>
+      </div>
+      
+      <!-- 筛选和搜索区域 -->
+      <div class="bg-rice/80 p-4 rounded-lg shadow-md mb-8 border border-ink/20">
+        <div class="flex flex-col md:flex-row gap-4">
+            <!-- 时期筛选 -->
+            <div class="flex flex-wrap gap-2">
+                <button class="period-filter active px-4 py-2 rounded-full text-sm font-medium transition-all" data-period="all">
+                    全部时期
+                </button>
+                <button class="period-filter px-4 py-2 rounded-full text-sm font-medium transition-all" data-period="ancient">
+                    古代史
+                </button>
+                <button class="period-filter px-4 py-2 rounded-full text-sm font-medium transition-all" data-period="medieval">
+                    中古史
+                </button>
+                <button class="period-filter px-4 py-2 rounded-full text-sm font-medium transition-all" data-period="modern">
+                    近代史
+                </button>
+                <button class="period-filter px-4 py-2 rounded-full text-sm font-medium transition-all" data-period="contemporary">
+                    现代史
+                </button>
+            </div>
+            
+            <!-- 搜索框 -->
+            <div class="relative flex-grow max-w-md ml-auto">
+                <input type="text" id="search-input" placeholder="搜索历史事件..." class="w-full px-4 py-2 pl-10 rounded-full border border-ink/30 bg-rice/90 focus:outline-none focus:ring-2 focus:ring-ink/30">
+                <i class="fa fa-search absolute left-3 top-1/2 transform -translate-y-1/2 text-ink/60"></i>
+            </div>
+        </div>
+      </div>
+      
+      <!-- 时间线滑块导航 -->
+      <div class="mb-12">
+          <div class="flex justify-between items-center mb-2 px-4">
+              <span class="text-sm">公元前2070年</span>
+              <span class="text-sm">至今</span>
+          </div>
+          <input type="range" id="timeline-slider" min="0" max="100" value="0" class="w-full h-2 bg-ink/10 rounded-lg appearance-none cursor-pointer accent-ink">
+      </div>
+      
+      <!-- 历史时期标题 -->
+      <div class="mb-8 text-center">
+          <h2 id="period-title" class="font-calligraphy text-[clamp(1.8rem,3vw,2.5rem)] text-ink">
+              全部历史时期
+          </h2>
+      </div>
+      
+      <!-- 时间线容器 -->
+      <div class="timeline-container relative pb-16">
+          <!-- 古代史 -->
+          <section class="mb-16 scroll-reveal" data-period="ancient">
+              <h3 class="font-calligraphy text-2xl text-ancient mb-6 pl-2 border-l-4 border-ancient">
+                  古代史 (约公元前2070年-公元581年)
+              </h3>
+              <div class="timeline-line bg-ancient/30 mb-8 relative">
+                  <div class="absolute top-1/2 transform -translate-y-1/2 left-[10%]">
+                      <div class="timeline-dot w-6 h-6 rounded-full bg-ancient border-4 border-rice"></div>
+                  </div>
+                  <div class="absolute top-1/2 transform -translate-y-1/2 left-[30%]">
+                      <div class="timeline-dot w-6 h-6 rounded-full bg-ancient border-4 border-rice"></div>
+                  </div>
+                  <div class="absolute top-1/2 transform -translate-y-1/2 left-[50%]">
+                      <div class="timeline-dot w-6 h-6 rounded-full bg-ancient border-4 border-rice"></div>
+                  </div>
+                  <div class="absolute top-1/2 transform -translate-y-1/2 left-[70%]">
+                      <div class="timeline-dot w-6 h-6 rounded-full bg-ancient border-4 border-rice"></div>
+                  </div>
+                  <div class="absolute top-1/2 transform -translate-y-1/2 left-[90%]">
+                      <div class="timeline-dot w-6 h-6 rounded-full bg-ancient border-4 border-rice"></div>
+                  </div>
+              </div>
+              
+              <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                  <!-- 古代史事件1 -->
+                  <div class="event-card bg-rice/80 p-5 rounded-lg shadow-md border border-ancient/20" data-period="ancient" data-year="前2070">
+                      <div class="flex items-start gap-4">
+                          <div class="text-ancient font-bold whitespace-nowrap mt-1">约前2070年</div>
+                          <div>
+                              <h4 class="text-lg font-bold mb-2">夏朝建立</h4>
+                              <p class="text-ink/80">禹建立夏朝，这是中国历史上第一个世袭制朝代，标志着原始社会的结束和奴隶社会的开始。</p>
+                          </div>
+                      </div>
+                  </div>
+                  
+                  <!-- 古代史事件2 -->
+                  <div class="event-card bg-rice/80 p-5 rounded-lg shadow-md border border-ancient/20" data-period="ancient" data-year="前1046">
+                      <div class="flex items-start gap-4">
+                          <div class="text-ancient font-bold whitespace-nowrap mt-1">前1046年</div>
+                          <div>
+                              <h4 class="text-lg font-bold mb-2">武王伐纣，西周建立</h4>
+                              <p class="text-ink/80">周武王姬发率领诸侯联军击败商纣王，建立周朝，定都镐京，史称西周，实行分封制。</p>
+                          </div>
+                      </div>
+                  </div>
+                  
+                  <!-- 古代史事件3 -->
+                  <div class="event-card bg-rice/80 p-5 rounded-lg shadow-md border border-ancient/20" data-period="ancient" data-year="前770">
+                      <div class="flex items-start gap-4">
+                          <div class="text-ancient font-bold whitespace-nowrap mt-1">前770年</div>
+                          <div>
+                              <h4 class="text-lg font-bold mb-2">平王东迁，东周开始</h4>
+                              <p class="text-ink/80">周平王将都城从镐京迁至洛邑，开启东周时期，分为春秋和战国两个阶段，诸侯争霸局面形成。</p>
+                          </div>
+                      </div>
+                  </div>
+                  
+                  <!-- 古代史事件4 -->
+                  <div class="event-card bg-rice/80 p-5 rounded-lg shadow-md border border-ancient/20" data-period="ancient" data-year="前221">
+                      <div class="flex items-start gap-4">
+                          <div class="text-ancient font-bold whitespace-nowrap mt-1">前221年</div>
+                          <div>
+                              <h4 class="text-lg font-bold mb-2">秦始皇统一中国</h4>
+                              <p class="text-ink/80">秦王嬴政灭六国，完成统一，建立秦朝，自称"始皇帝"，实行郡县制，统一文字、货币和度量衡。</p>
+                          </div>
+                      </div>
+                  </div>
+                  
+                  <!-- 古代史事件5 -->
+                  <div class="event-card bg-rice/80 p-5 rounded-lg shadow-md border border-ancient/20" data-period="ancient" data-year="202">
+                      <div class="flex items-start gap-4">
+                          <div class="text-ancient font-bold whitespace-nowrap mt-1">前202年</div>
+                          <div>
+                              <h4 class="text-lg font-bold mb-2">汉朝建立</h4>
+                              <p class="text-ink/80">刘邦击败项羽，建立汉朝，定都长安，史称西汉，开创了"文景之治"和"汉武盛世"，是中国历史上强盛的朝代之一。</p>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+          </section>
+          
+          <!-- 中古史 -->
+          <section class="mb-16 scroll-reveal" data-period="medieval">
+              <h3 class="font-calligraphy text-2xl text-medieval mb-6 pl-2 border-l-4 border-medieval">
+                  中古史 (581年-1840年)
+              </h3>
+              <div class="timeline-line bg-medieval/30 mb-8 relative">
+                  <div class="absolute top-1/2 transform -translate-y-1/2 left-[15%]">
+                      <div class="timeline-dot w-6 h-6 rounded-full bg-medieval border-4 border-rice"></div>
+                  </div>
+                  <div class="absolute top-1/2 transform -translate-y-1/2 left-[40%]">
+                      <div class="timeline-dot w-6 h-6 rounded-full bg-medieval border-4 border-rice"></div>
+                  </div>
+                  <div class="absolute top-1/2 transform -translate-y-1/2 left-[65%]">
+                      <div class="timeline-dot w-6 h-6 rounded-full bg-medieval border-4 border-rice"></div>
+                  </div>
+                  <div class="absolute top-1/2 transform -translate-y-1/2 left-[90%]">
+                      <div class="timeline-dot w-6 h-6 rounded-full bg-medieval border-4 border-rice"></div>
+                  </div>
+              </div>
+              
+              <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                  <!-- 中古史事件1 -->
+                  <div class="event-card bg-rice/80 p-5 rounded-lg shadow-md border border-medieval/20" data-period="medieval" data-year="581">
+                      <div class="flex items-start gap-4">
+                          <div class="text-medieval font-bold whitespace-nowrap mt-1">581年</div>
+                          <div>
+                              <h4 class="text-lg font-bold mb-2">隋朝建立</h4>
+                              <p class="text-ink/80">杨坚建立隋朝，统一分裂已久的中国，开创三省六部制，开凿大运河，对后世影响深远。</p>
+                          </div>
+                      </div>
+                  </div>
+                  
+                  <!-- 中古史事件2 -->
+                  <div class="event-card bg-rice/80 p-5 rounded-lg shadow-md border border-medieval/20" data-period="medieval" data-year="618">
+                      <div class="flex items-start gap-4">
+                          <div class="text-medieval font-bold whitespace-nowrap mt-1">618年</div>
+                          <div>
+                              <h4 class="text-lg font-bold mb-2">唐朝建立</h4>
+                              <p class="text-ink/80">李渊建立唐朝，是中国历史上最强盛的朝代之一，出现了"贞观之治"和"开元盛世"，文化经济高度繁荣。</p>
+                          </div>
+                      </div>
+                  </div>
+                  
+                  <!-- 中古史事件3 -->
+                  <div class="event-card bg-rice/80 p-5 rounded-lg shadow-md border border-medieval/20" data-period="medieval" data-year="960">
+                      <div class="flex items-start gap-4">
+                          <div class="text-medieval font-bold whitespace-nowrap mt-1">960年</div>
+                          <div>
+                              <h4 class="text-lg font-bold mb-2">宋朝建立</h4>
+                              <p class="text-ink/80">赵匡胤发动陈桥兵变，建立宋朝，定都汴京，史称北宋，经济文化高度发展，科技发明层出不穷。</p>
+                          </div>
+                      </div>
+                  </div>
+                  
+                  <!-- 中古史事件4 -->
+                  <div class="event-card bg-rice/80 p-5 rounded-lg shadow-md border border-medieval/20" data-period="medieval" data-year="1271">
+                      <div class="flex items-start gap-4">
+                          <div class="text-medieval font-bold whitespace-nowrap mt-1">1271年</div>
+                          <div>
+                              <h4 class="text-lg font-bold mb-2">元朝建立</h4>
+                              <p class="text-ink/80">忽必烈定国号为"大元"，建立元朝，是中国历史上第一个由少数民族建立的大一统王朝。</p>
+                          </div>
+                      </div>
+                  </div>
+                  
+                  <!-- 中古史事件5 -->
+                  <div class="event-card bg-rice/80 p-5 rounded-lg shadow-md border border-medieval/20" data-period="medieval" data-year="1368">
+                      <div class="flex items-start gap-4">
+                          <div class="text-medieval font-bold whitespace-nowrap mt-1">1368年</div>
+                          <div>
+                              <h4 class="text-lg font-bold mb-2">明朝建立</h4>
+                              <p class="text-ink/80">朱元璋建立明朝，定都南京，后迁都北京，是中国历史上最后一个由汉族建立的大一统王朝。</p>
+                          </div>
+                      </div>
+                  </div>
+                  
+                  <!-- 中古史事件6 -->
+                  <div class="event-card bg-rice/80 p-5 rounded-lg shadow-md border border-medieval/20" data-period="medieval" data-year="1644">
+                      <div class="flex items-start gap-4">
+                          <div class="text-medieval font-bold whitespace-nowrap mt-1">1644年</div>
+                          <div>
+                              <h4 class="text-lg font-bold mb-2">清朝建立</h4>
+                              <p class="text-ink/80">清军入关，建立清朝，是中国历史上疆域最辽阔的朝代，康乾盛世国力强盛，后期闭关锁国导致落后。</p>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+          </section>
+          
+          <!-- 近代史 -->
+          <section class="mb-16 scroll-reveal" data-period="modern">
+              <h3 class="font-calligraphy text-2xl text-modern mb-6 pl-2 border-l-4 border-modern">
+                  近代史 (1840年-1949年)
+              </h3>
+              <div class="timeline-line bg-modern/30 mb-8 relative">
+                  <div class="absolute top-1/2 transform -translate-y-1/2 left-[20%]">
+                      <div class="timeline-dot w-6 h-6 rounded-full bg-modern border-4 border-rice"></div>
+                  </div>
+                  <div class="absolute top-1/2 transform -translate-y-1/2 left-[40%]">
+                      <div class="timeline-dot w-6 h-6 rounded-full bg-modern border-4 border-rice"></div>
+                  </div>
+                  <div class="absolute top-1/2 transform -translate-y-1/2 left-[60%]">
+                      <div class="timeline-dot w-6 h-6 rounded-full bg-modern border-4 border-rice"></div>
+                  </div>
+                  <div class="absolute top-1/2 transform -translate-y-1/2 left-[80%]">
+                      <div class="timeline-dot w-6 h-6 rounded-full bg-modern border-4 border-rice"></div>
+                  </div>
+              </div>
+              
+              <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                  <!-- 近代史事件1 -->
+                  <div class="event-card bg-rice/80 p-5 rounded-lg shadow-md border border-modern/20" data-period="modern" data-year="1840">
+                      <div class="flex items-start gap-4">
+                          <div class="text-modern font-bold whitespace-nowrap mt-1">1840年</div>
+                          <div>
+                              <h4 class="text-lg font-bold mb-2">鸦片战争</h4>
+                              <p class="text-ink/80">英国发动鸦片战争，中国战败，被迫签订《南京条约》，中国开始沦为半殖民地半封建社会。</p>
+                          </div>
+                      </div>
+                  </div>
+                  
+                  <!-- 近代史事件2 -->
+                  <div class="event-card bg-rice/80 p-5 rounded-lg shadow-md border border-modern/20" data-period="modern" data-year="1898">
+                      <div class="flex items-start gap-4">
+                          <div class="text-modern font-bold whitespace-nowrap mt-1">1898年</div>
+                          <div>
+                              <h4 class="text-lg font-bold mb-2">戊戌变法</h4>
+                              <p class="text-ink/80">康有为、梁启超等维新派发起变法运动，试图学习西方制度，改革中国政治，但最终失败。</p>
+                          </div>
+                      </div>
+                  </div>
+                  
+                  <!-- 近代史事件3 -->
+                  <div class="event-card bg-rice/80 p-5 rounded-lg shadow-md border border-modern/20" data-period="modern" data-year="1911">
+                      <div class="flex items-start gap-4">
+                          <div class="text-modern font-bold whitespace-nowrap mt-1">1911年</div>
+                          <div>
+                              <h4 class="text-lg font-bold mb-2">辛亥革命</h4>
+                              <p class="text-ink/80">武昌起义爆发，推翻清朝统治，结束了中国两千多年的君主专制制度，建立中华民国。</p>
+                          </div>
+                      </div>
+                  </div>
+                  
+                  <!-- 近代史事件4 -->
+                  <div class="event-card bg-rice/80 p-5 rounded-lg shadow-md border border-modern/20" data-period="modern" data-year="1919">
+                      <div class="flex items-start gap-4">
+                          <div class="text-modern font-bold whitespace-nowrap mt-1">1919年</div>
+                          <div>
+                              <h4 class="text-lg font-bold mb-2">五四运动</h4>
+                              <p class="text-ink/80">北京学生发起爱国运动，抗议巴黎和会外交失败，提倡民主与科学，成为中国新民主主义革命的开端。</p>
+                          </div>
+                      </div>
+                  </div>
+                  
+                  <!-- 近代史事件5 -->
+                  <div class="event-card bg-rice/80 p-5 rounded-lg shadow-md border border-modern/20" data-period="modern" data-year="1921">
+                      <div class="flex items-start gap-4">
+                          <div class="text-modern font-bold whitespace-nowrap mt-1">1921年</div>
+                          <div>
+                              <h4 class="text-lg font-bold mb-2">中国共产党成立</h4>
+                              <p class="text-ink/80">中国共产党第一次全国代表大会在上海召开，标志着中国共产党的正式成立，中国革命面貌焕然一新。</p>
+                          </div>
+                      </div>
+                  </div>
+                  
+                  <!-- 近代史事件6 -->
+                  <div class="event-card bg-rice/80 p-5 rounded-lg shadow-md border border-modern/20" data-period="modern" data-year="1937">
+                      <div class="flex items-start gap-4">
+                          <div class="text-modern font-bold whitespace-nowrap mt-1">1937年</div>
+                          <div>
+                              <h4 class="text-lg font-bold mb-2">抗日战争全面爆发</h4>
+                              <p class="text-ink/80">卢沟桥事变爆发，中国全面抗战开始，国共两党第二次合作，共同抵御日本侵略者。</p>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+          </section>
+          
+         <!-- 现代史 -->
+<section class="mb-16 scroll-reveal" data-period="contemporary">
+    <h3 class="font-calligraphy text-2xl text-contemporary mb-6 pl-2 border-l-4 border-contemporary">
+        现代史 (1949年至今)
+    </h3>
+    <div class="timeline-line bg-contemporary/30 mb-8 relative">
+        <div class="absolute top-1/2 transform -translate-y-1/2 left-[15%]">
+            <div class="timeline-dot w-6 h-6 rounded-full bg-contemporary border-4 border-rice"></div>
+        </div>
+        <div class="absolute top-1/2 transform -translate-y-1/2 left-[35%]">
+            <div class="timeline-dot w-6 h-6 rounded-full bg-contemporary border-4 border-rice"></div>
+        </div>
+        <div class="absolute top-1/2 transform -translate-y-1/2 left-[55%]">
+            <div class="timeline-dot w-6 h-6 rounded-full bg-contemporary border-4 border-rice"></div>
+        </div>
+        <div class="absolute top-1/2 transform -translate-y-1/2 left-[75%]">
+            <div class="timeline-dot w-6 h-6 rounded-full bg-contemporary border-4 border-rice"></div>
+        </div>
+        <div class="absolute top-1/2 transform -translate-y-1/2 left-[95%]">
+            <div class="timeline-dot w-6 h-6 rounded-full bg-contemporary border-4 border-rice"></div>
+        </div>
+    </div>
+    
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <!-- 现代史事件1 -->
+        <div class="event-card bg-rice/80 p-5 rounded-lg shadow-md border border-contemporary/20" data-period="contemporary" data-year="1949">
+            <div class="flex items-start gap-4">
+                <div class="text-contemporary font-bold whitespace-nowrap mt-1">1949年</div>
+                <div>
+                    <h4 class="text-lg font-bold mb-2">中华人民共和国成立</h4>
+                    <p class="text-ink/80">毛泽东主席在天安门城楼上庄严宣告中华人民共和国成立，中国人民从此站起来了。</p>
+                </div>
+            </div>
+        </div>
+        
+        <!-- 现代史事件2 -->
+        <div class="event-card bg-rice/80 p-5 rounded-lg shadow-md border border-contemporary/20" data-period="contemporary" data-year="1978">
+            <div class="flex items-start gap-4">
+                <div class="text-contemporary font-bold whitespace-nowrap mt-1">1978年</div>
+                <div>
+                    <h4 class="text-lg font-bold mb-2">改革开放</h4>
+                    <p class="text-ink/80">党的十一届三中全会召开，决定实行改革开放政策，中国经济社会发展进入新时期。</p>
+                </div>
+            </div>
+        </div>
+        
+        <!-- 现代史事件3 -->
+        <div class="event-card bg-rice/80 p-5 rounded-lg shadow-md border border-contemporary/20" data-period="contemporary" data-year="2001">
+            <div class="flex items-start gap-4">
+                <div class="text-contemporary font-bold whitespace-nowrap mt-1">2001年</div>
+                <div>
+                    <h4 class="text-lg font-bold mb-2">加入世界贸易组织</h4>
+                    <p class="text-ink/80">中国正式加入世界贸易组织，标志着中国对外开放进入新阶段，经济全球化进程加快。</p>
+                </div>
+            </div>
+        </div>
+        
+        <!-- 现代史事件4 -->
+        <div class="event-card bg-rice/80 p-5 rounded-lg shadow-md border border-contemporary/20" data-period="contemporary" data-year="2008">
+            <div class="flex items-start gap-4">
+                <div class="text-contemporary font-bold whitespace-nowrap mt-1">2008年</div>
+                <div>
+                    <h4 class="text-lg font-bold mb-2">北京奥运会</h4>
+                    <p class="text-ink/80">第29届夏季奥林匹克运动会在北京成功举办，展示了中国的综合国力和文化魅力。</p>
+                </div>
+            </div>
+        </div>
+        
+        <!-- 现代史事件5 -->
+        <div class="event-card bg-rice/80 p-5 rounded-lg shadow-md border border-contemporary/20" data-period="contemporary" data-year="2020">
+            <div class="flex items-start gap-4">
+                <div class="text-contemporary font-bold whitespace-nowrap mt-1">2020年</div>
+                <div>
+                    <h4 class="text-lg font-bold mb-2">脱贫攻坚战全面胜利</h4>
+                    <p class="text-ink/80">中国宣布现行标准下农村贫困人口全部脱贫，历史性地解决了绝对贫困问题。</p>
+                </div>
+            </div>
+        </div>
+        
+        <!-- 现代史事件6 -->
+        <div class="event-card bg-rice/80 p-5 rounded-lg shadow-md border border-contemporary/20" data-period="contemporary" data-year="2022">
+            <div class="flex items-start gap-4">
+                <div class="text-contemporary font-bold whitespace-nowrap mt-1">2022年</div>
+                <div>
+                    <h4 class="text-lg font-bold mb-2">北京冬奥会</h4>
+                    <p class="text-ink/80">第24届冬季奥林匹克运动会在北京成功举办，北京成为世界上第一个既举办过夏季奥运会又举办冬季奥运会的城市。</p>
+                </div>
+            </div>
+        </div>
+        
+        <!-- 现代史事件7 -->
+        <div class="event-card bg-rice/80 p-5 rounded-lg shadow-md border border-contemporary/20" data-period="contemporary" data-year="2023">
+            <div class="flex items-start gap-4">
+                <div class="text-contemporary font-bold whitespace-nowrap mt-1">2023年</div>
+                <div>
+                    <h4 class="text-lg font-bold mb-2">神舟十六号发射成功</h4>
+                    <p class="text-ink/80">神舟十六号载人飞船发射升空，与空间站组合体完成自主快速交会对接，标志着中国空间站建造阶段任务圆满完成。</p>
+                </div>
+            </div>
+        </div>
+        
+        <!-- 现代史事件8 -->
+        <div class="event-card bg-rice/80 p-5 rounded-lg shadow-md border border-contemporary/20" data-period="contemporary" data-year="2024">
+            <div class="flex items-start gap-4">
+                <div class="text-contemporary font-bold whitespace-nowrap mt-1">2024年</div>
+                <div>
+                    <h4 class="text-lg font-bold mb-2">中国首台量子计算机"九章三号"问世</h4>
+                    <p class="text-ink/80">中国科学家研制成功"九章三号"量子计算机，在特定任务上实现了百万亿倍于传统超级计算机的计算速度。</p>
+                </div>
+            </div>
+        </div>
+        
+        <!-- 现代史事件9 -->
+        <div class="event-card bg-rice/80 p-5 rounded-lg shadow-md border border-contemporary/20" data-period="contemporary" data-year="2025">
+            <div class="flex items-start gap-4">
+                <div class="text-contemporary font-bold whitespace-nowrap mt-1">2025年</div>
+                <div>
+                    <h4 class="text-lg font-bold mb-2">中国实现碳达峰目标</h4>
+                    <p class="text-ink/80">中国提前五年实现碳达峰目标，单位GDP二氧化碳排放较2005年下降超过65%，非化石能源消费比重提升至25%以上。</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+      </div>
+    </div>
+  </section>
+
+<!-- 国家成就 - 数据可视化大屏 -->
+<section id="achievement-dashboard" class="py-12 md:py-16 bg-[#f8fafc] min-h-[80vh]">
+  <!-- 看板头部：标题+筛选器 -->
+  <div class="container mx-auto px-4 sm:px-6 lg:px-8 mb-8">
+    <div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
+      <div>
+        <h2 class="text-2xl md:text-3xl font-bold text-[#0f172a] relative inline-block">
+          国家成就数据看板
+          <span class="absolute -bottom-1 left-0 w-1/2 h-1 bg-primary rounded-full"></span>
+        </h2>
+        <p class="text-gray-500 mt-1">实时呈现经济、科技、民生、生态核心数据（2025年最新）</p>
+      </div>
+      <!-- 时间筛选器：增强看板实用性 -->
+      <div class="flex items-center gap-3 bg-white px-3 py-2 rounded-lg border border-gray-200 shadow-sm transform hover:shadow-md transition-all duration-300">
+        <label class="text-sm text-gray-600">时间范围：</label>
+        <select id="time-filter" class="border-none outline-none text-sm text-gray-700 bg-transparent cursor-pointer">
+          <option value="2025">2025年（最新）</option>
+          <option value="2020-2025">近5年趋势</option>
+          <option value="2015-2025">近10年趋势</option>
+        </select>
+      </div>
+    </div>
+  </div>
+
+  <!-- 看板主体：网格布局+卡片式模块 -->
+  <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-5 mb-8">
+      <!-- 核心指标卡1：经济总量 -->
+      <div class="bg-white rounded-xl shadow-md p-5 border-l-4 border-[#2563eb] hover:shadow-lg transition-all duration-300 transform hover:-translate-y-1">
+        <div class="flex justify-between items-start">
+          <div>
+            <p class="text-sm text-gray-500">国内生产总值（GDP）</p>
+            <h3 class="text-2xl md:text-3xl font-bold text-[#0f172a] mt-2 counter" data-target="140">0</h3>
+            <p class="text-xs text-gray-400">单位：万亿元</p>
+          </div>
+          <div class="w-10 h-10 rounded-full bg-[#2563eb]/10 flex items-center justify-center">
+            <i class="fa fa-chart-pie text-[#2563eb]"></i>
+          </div>
+        </div>
+        <div class="mt-4 flex items-center text-sm">
+          <span class="text-green-500 flex items-center">
+            <i class="fa fa-arrow-up mr-1"></i>6.5%
+          </span>
+          <span class="text-gray-500 ml-2">同比增长</span>
+        </div>
+      </div>
+
+      <!-- 核心指标卡2：科技投入 -->
+      <div class="bg-white rounded-xl shadow-md p-5 border-l-4 border-[#10b981] hover:shadow-lg transition-all duration-300 transform hover:-translate-y-1">
+        <div class="flex justify-between items-start">
+          <div>
+            <p class="text-sm text-gray-500">研发经费投入</p>
+            <h3 class="text-2xl md:text-3xl font-bold text-[#0f172a] mt-2 counter" data-target="3.8">0</h3>
+            <p class="text-xs text-gray-400">单位：万亿元</p>
+          </div>
+          <div class="w-10 h-10 rounded-full bg-[#10b981]/10 flex items-center justify-center">
+            <i class="fa fa-flask text-[#10b981]"></i>
+          </div>
+        </div>
+        <div class="mt-4 flex items-center text-sm">
+          <span class="text-green-500 flex items-center">
+            <i class="fa fa-arrow-up mr-1"></i>10.2%
+          </span>
+          <span class="text-gray-500 ml-2">占GDP比重3.2%</span>
+        </div>
+      </div>
+
+      <!-- 核心指标卡3：民生保障 -->
+      <div class="bg-white rounded-xl shadow-md p-5 border-l-4 border-[#f59e0b] hover:shadow-lg transition-all duration-300 transform hover:-translate-y-1">
+        <div class="flex justify-between items-start">
+          <div>
+            <p class="text-sm text-gray-500">基本养老保险参保率</p>
+            <h3 class="text-2xl md:text-3xl font-bold text-[#0f172a] mt-2 counter" data-target="95">0</h3>
+            <p class="text-xs text-gray-400">单位：%</p>
+          </div>
+          <div class="w-10 h-10 rounded-full bg-[#f59e0b]/10 flex items-center justify-center">
+            <i class="fa fa-shield text-[#f59e0b]"></i>
+          </div>
+        </div>
+        <div class="mt-4 flex items-center text-sm">
+          <span class="text-green-500 flex items-center">
+            <i class="fa fa-arrow-up mr-1"></i>2.1%
+          </span>
+          <span class="text-gray-500 ml-2">较上年提升</span>
+        </div>
+      </div>
+
+      <!-- 核心指标卡4：生态环境 -->
+      <div class="bg-white rounded-xl shadow-md p-5 border-l-4 border-[#06b6d4] hover:shadow-lg transition-all duration-300 transform hover:-translate-y-1">
+        <div class="flex justify-between items-start">
+          <div>
+            <p class="text-sm text-gray-500">森林覆盖率</p>
+            <h3 class="text-2xl md:text-3xl font-bold text-[#0f172a] mt-2 counter" data-target="24.02">0</h3>
+            <p class="text-xs text-gray-400">单位：%</p>
+          </div>
+          <div class="w-10 h-10 rounded-full bg-[#06b6d4]/10 flex items-center justify-center">
+            <i class="fa fa-tree text-[#06b6d4]"></i>
+          </div>
+        </div>
+        <div class="mt-4 flex items-center text-sm">
+          <span class="text-green-500 flex items-center">
+            <i class="fa fa-arrow-up mr-1"></i>0.28%
+          </span>
+          <span class="text-gray-500 ml-2">较上年提升</span>
+        </div>
+      </div>
+
+      <!-- 核心指标卡5：交通基建 -->
+      <div class="bg-white rounded-xl shadow-md p-5 border-l-4 border-[#8b5cf6] hover:shadow-lg transition-all duration-300 transform hover:-translate-y-1">
+        <div class="flex justify-between items-start">
+          <div>
+            <p class="text-sm text-gray-500">高铁运营里程</p>
+            <h3 class="text-2xl md:text-3xl font-bold text-[#0f172a] mt-2 counter" data-target="4.5">0</h3>
+            <p class="text-xs text-gray-400">单位：万公里</p>
+          </div>
+          <div class="w-10 h-10 rounded-full bg-[#8b5cf6]/10 flex items-center justify-center">
+            <i class="fa fa-train text-[#8b5cf6]"></i>
+          </div>
+        </div>
+        <div class="mt-4 flex items-center text-sm">
+          <span class="text-green-500 flex items-center">
+            <i class="fa fa-arrow-up mr-1"></i>7.1%
+          </span>
+          <span class="text-gray-500 ml-2">全球占比75%</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- 图表区域1：经济趋势+产业结构 -->
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-5 mb-8">
+      <!-- 经济趋势图 -->
+      <div class="bg-white rounded-xl shadow-md p-5 hover:shadow-lg transition-all duration-300">
+        <div class="flex justify-between items-center mb-4">
+          <h3 class="font-semibold text-[#0f172a]">GDP增长趋势（2015-2025）</h3>
+          <div class="text-xs text-gray-500">数据来源：国家统计局</div>
+        </div>
+        <div class="h-72">
+          <canvas id="gdp-trend-chart"></canvas>
+        </div>
+      </div>
+
+      <!-- 产业结构 -->
+      <div class="bg-white rounded-xl shadow-md p-5 hover:shadow-lg transition-all duration-300">
+        <div class="flex justify-between items-center mb-4">
+          <h3 class="font-semibold text-[#0f172a]">2025年产业结构分布</h3>
+          <div class="text-xs text-gray-500">单位：%</div>
+        </div>
+        <div class="h-72 flex items-center justify-center">
+          <canvas id="industry-structure-chart"></canvas>
+        </div>
+      </div>
+    </div>
+
+    <!-- 图表区域2：科技成就+民生数据 -->
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-5 mb-8">
+      <!-- 科技成就 -->
+      <div class="bg-white rounded-xl shadow-md p-5 hover:shadow-lg transition-all duration-300">
+        <div class="flex justify-between items-center mb-4">
+          <h3 class="font-semibold text-[#0f172a]">重点科技领域成就评分</h3>
+          <div class="text-xs text-gray-500">满分100分</div>
+        </div>
+        <div class="h-72">
+          <canvas id="tech-achievement-chart"></canvas>
+        </div>
+      </div>
+
+      <!-- 民生数据 -->
+      <div class="bg-white rounded-xl shadow-md p-5 hover:shadow-lg transition-all duration-300">
+        <div class="flex justify-between items-center mb-4">
+          <h3 class="font-semibold text-[#0f172a]">民生保障核心指标（2020 vs 2025）</h3>
+          <div class="text-xs text-gray-500">单位：%</div>
+        </div>
+        <div class="h-72">
+          <canvas id="livelihood-chart"></canvas>
+        </div>
+      </div>
+    </div>
+
+    <!-- 图表区域3：生态环境+交通基建 -->
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-5">
+      <!-- 生态环境 -->
+      <div class="bg-white rounded-xl shadow-md p-5 hover:shadow-lg transition-all duration-300">
+        <div class="flex justify-between items-center mb-4">
+          <h3 class="font-semibold text-[#0f172a]">生态环境改善趋势</h3>
+          <div class="text-xs text-gray-500">2015-2025</div>
+        </div>
+        <div class="h-72">
+          <canvas id="environment-trend-chart"></canvas>
+        </div>
+      </div>
+
+      <!-- 交通基建 -->
+      <div class="bg-white rounded-xl shadow-md p-5 hover:shadow-lg transition-all duration-300">
+        <div class="flex justify-between items-center mb-4">
+          <h3 class="font-semibold text-[#0f172a]">交通基建里程（2025年）</h3>
+          <div class="text-xs text-gray-500">单位：万公里</div>
+        </div>
+        <div class="h-72">
+          <canvas id="transport-infra-chart"></canvas>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+  <!-- 爱国名言 - 优化版 -->
+  <section id="quotes" class="py-20 bg-gradient-to-br from-primary/5 to-accent/5">
+    <div class="container mx-auto px-4">
+      <div class="text-center mb-16">
+        <h2 class="text-[clamp(1.8rem,4vw,3rem)] font-bold text-dark mb-4">爱国名言</h2>
+        <p class="text-gray-600 max-w-2xl mx-auto text-lg">传承中华优秀传统文化，弘扬爱国主义精神</p>
+        <div class="w-20 h-1 bg-primary mx-auto mt-4 rounded-full"></div>
+      </div>
+      
+      <!-- 名言网格布局 -->
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-16">
+        <!-- 名言卡片1 -->
+        <div class="quote-card bg-white p-6 rounded-xl shadow-md hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 border-l-4 border-primary">
+          <div class="flex items-start mb-4">
+            <div class="bg-primary/10 p-3 rounded-full mr-4">
+              <i class="fa fa-quote-left text-primary text-xl"></i>
+            </div>
+            <div>
+              <h3 class="text-lg font-bold text-dark">顾炎武</h3>
+              <p class="text-gray-500 text-sm">明末清初思想家</p>
+            </div>
+          </div>
+          <p class="text-gray-700 text-lg leading-relaxed">天下兴亡，匹夫有责。</p>
+        </div>
+        
+        <!-- 名言卡片2 -->
+        <div class="quote-card bg-white p-6 rounded-xl shadow-md hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 border-l-4 border-secondary">
+          <div class="flex items-start mb-4">
+            <div class="bg-secondary/10 p-3 rounded-full mr-4">
+              <i class="fa fa-quote-left text-secondary text-xl"></i>
+            </div>
+            <div>
+              <h3 class="text-lg font-bold text-dark">林则徐</h3>
+              <p class="text-gray-500 text-sm">清代政治家</p>
+            </div>
+          </div>
+          <p class="text-gray-700 text-lg leading-relaxed">苟利国家生死以，岂因祸福避趋之。</p>
+        </div>
+        
+        <!-- 名言卡片3 -->
+        <div class="quote-card bg-white p-6 rounded-xl shadow-md hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 border-l-4 border-accent">
+          <div class="flex items-start mb-4">
+            <div class="bg-accent/10 p-3 rounded-full mr-4">
+              <i class="fa fa-quote-left text-accent text-xl"></i>
+            </div>
+            <div>
+              <h3 class="text-lg font-bold text-dark">周恩来</h3>
+              <p class="text-gray-500 text-sm">新中国开国总理</p>
+            </div>
+          </div>
+          <p class="text-gray-700 text-lg leading-relaxed">为中华之崛起而读书。</p>
+        </div>
+        
+        <!-- 名言卡片4 -->
+        <div class="quote-card bg-white p-6 rounded-xl shadow-md hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 border-l-4 border-primary">
+          <div class="flex items-start mb-4">
+            <div class="bg-primary/10 p-3 rounded-full mr-4">
+              <i class="fa fa-quote-left text-primary text-xl"></i>
+            </div>
+            <div>
+              <h3 class="text-lg font-bold text-dark">邓小平</h3>
+              <p class="text-gray-500 text-sm">改革开放总设计师</p>
+            </div>
+          </div>
+          <p class="text-gray-700 text-lg leading-relaxed">我是中国人民的儿子，我深情地爱着我的祖国和人民。</p>
+        </div>
+        
+        <!-- 名言卡片5 -->
+        <div class="quote-card bg-white p-6 rounded-xl shadow-md hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 border-l-4 border-secondary">
+          <div class="flex items-start mb-4">
+            <div class="bg-secondary/10 p-3 rounded-full mr-4">
+              <i class="fa fa-quote-left text-secondary text-xl"></i>
+            </div>
+            <div>
+              <h3 class="text-lg font-bold text-dark">文天祥</h3>
+              <p class="text-gray-500 text-sm">南宋民族英雄</p>
+            </div>
+          </div>
+          <p class="text-gray-700 text-lg leading-relaxed">人生自古谁无死，留取丹心照汗青。</p>
+        </div>
+        
+        <!-- 名言卡片6 -->
+        <div class="quote-card bg-white p-6 rounded-xl shadow-md hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 border-l-4 border-accent">
+          <div class="flex items-start mb-4">
+            <div class="bg-accent/10 p-3 rounded-full mr-4">
+              <i class="fa fa-quote-left text-accent text-xl"></i>
+            </div>
+            <div>
+              <h3 class="text-lg font-bold text-dark">岳飞</h3>
+              <p class="text-gray-500 text-sm">南宋抗金名将</p>
+            </div>
+          </div>
+          <p class="text-gray-700 text-lg leading-relaxed">精忠报国。</p>
+        </div>
+      </div>
+      
+      <!-- 爱国知识 -->
+      <div class="bg-white rounded-2xl shadow-lg p-8">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+          <div>
+            <h3 class="text-2xl font-bold mb-6 flex items-center">
+              <i class="fa fa-heart text-primary mr-3"></i>
+              爱国主义精神
+            </h3>
+            <ul class="space-y-4">
+              <li class="flex items-start">
+                <i class="fa fa-star text-primary mt-1 mr-3"></i>
+                <p class="text-gray-700">爱国主义是中华民族精神的核心，是凝聚民族力量的重要纽带</p>
+              </li>
+              <li class="flex items-start">
+                <i class="fa fa-star text-primary mt-1 mr-3"></i>
+                <p class="text-gray-700">爱国和爱社会主义本质上是一致的，共同构成中华民族伟大复兴的精神动力</p>
+              </li>
+              <li class="flex items-start">
+                <i class="fa fa-star text-primary mt-1 mr-3"></i>
+                <p class="text-gray-700">爱国主义教育是培养社会主义建设者和接班人的重要途径</p>
+              </li>
+            </ul>
+          </div>
+          
+          <div>
+            <h3 class="text-2xl font-bold mb-6 flex items-center">
+              <i class="fa fa-flag text-secondary mr-3"></i>
+              爱国行动指南
+            </h3>
+            <ul class="space-y-4">
+              <li class="flex items-start">
+                <i class="fa fa-check-circle text-secondary mt-1 mr-3"></i>
+                <p class="text-gray-700">学习中华优秀传统文化，增强文化自信和民族认同</p>
+              </li>
+              <li class="flex items-start">
+                <i class="fa fa-check-circle text-secondary mt-1 mr-3"></i>
+                <p class="text-gray-700">积极参与志愿服务，为社会和谐发展贡献力量</p>
+              </li>
+              <li class="flex items-start">
+                <i class="fa fa-check-circle text-secondary mt-1 mr-3"></i>
+                <p class="text-gray-700">立足本职岗位，为实现中华民族伟大复兴的中国梦不懈奋斗</p>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 联系我们 - 简洁版 -->
+  <section id="contact" class="py-16 bg-gradient-to-br from-primary/5 to-accent/5">
+    <div class="container mx-auto px-4">
+      <div class="text-center mb-12">
+        <h2 class="text-[clamp(1.8rem,4vw,3rem)] font-bold text-dark mb-4">联系我们</h2>
+        <p class="text-gray-600 max-w-2xl mx-auto text-lg">传承爱国精神，共筑民族复兴</p>
+        <div class="w-20 h-1 bg-primary mx-auto mt-4 rounded-full"></div>
+      </div>
+      
+      <div class="max-w-4xl mx-auto">
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
+          <!-- 联系信息卡片1 -->
+          <div class="bg-white rounded-xl shadow-md p-6 text-center hover:shadow-lg transition-all duration-300 transform hover:-translate-y-2">
+            <div class="bg-primary/10 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
+              <i class="fa fa-envelope text-primary text-2xl"></i>
+            </div>
+            <h3 class="text-xl font-bold mb-2">邮箱联系</h3>
+            <p class="text-gray-600 mb-4">发送您的爱国心声</p>
+            <a href="mailto:contact@aiguo.com" class="text-primary font-medium hover:text-primary/80 transition-colors">
+              xiaoma248@163.com
+            </a>
+          </div>
+          
+          <!-- 联系信息卡片2 -->
+          <div class="bg-white rounded-xl shadow-md p-6 text-center hover:shadow-lg transition-all duration-300 transform hover:-translate-y-2">
+            <div class="bg-primary/10 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
+              <i class="fa fa-phone text-primary text-2xl"></i>
+            </div>
+            <h3 class="text-xl font-bold mb-2">电话咨询</h3>
+            <p class="text-gray-600 mb-4">倾听您的爱国建议</p>
+            <a href="tel:+861012345678" class="text-primary font-medium hover:text-primary/80 transition-colors">
+              +86 12345678
+            </a>
+          </div>
+          
+          <!-- 联系信息卡片3 -->
+          <div class="bg-white rounded-xl shadow-md p-6 text-center hover:shadow-lg transition-all duration-300 transform hover:-translate-y-2">
+            <div class="bg-primary/10 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
+              <i class="fa fa-map-marker text-primary text-2xl"></i>
+            </div>
+            <h3 class="text-xl font-bold mb-2">办公地址</h3>
+            <p class="text-gray-600 mb-4">欢迎实地交流</p>
+            <p class="text-primary font-medium">重庆人科-管理学院-人力</p>
+          </div>
+        </div>
+        
+        <!-- 爱国倡议 -->
+        <div class="bg-white rounded-2xl shadow-lg p-8 text-center">
+          <h3 class="text-2xl font-bold mb-4 text-dark">爱国倡议</h3>
+          <p class="text-gray-700 text-lg mb-6 leading-relaxed">
+            让我们携手传承红色基因，弘扬爱国主义精神，为实现中华民族伟大复兴的中国梦贡献智慧和力量。
+          </p>
+          <div class="flex flex-wrap justify-center gap-4">
+            <a href="#" class="px-6 py-3 bg-primary hover:bg-primary/90 text-white font-semibold rounded-lg shadow-lg transform hover:-translate-y-1 transition-all duration-300">
+              参与爱国活动
+            </a>
+            <a href="#" class="px-6 py-3 bg-transparent border-2 border-primary hover:bg-primary/10 text-primary font-semibold rounded-lg shadow-lg transform hover:-translate-y-1 transition-all duration-300">
+              了解更多
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 页脚 -->
+  <footer class="bg-dark text-white pt-16 pb-8">
+    <div class="container mx-auto px-4">
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
+        <div>
+          <h3 class="text-xl font-bold mb-4 flex items-center">
+            <i class="fa fa-flag text-primary mr-2"></i>
+            我爱我的祖国
+          </h3>
+          <p class="text-white/70 mb-6">
+            弘扬爱国主义精神，传承中华优秀文化，凝聚民族力量，共筑中国梦。
+          </p>
+          <div class="flex space-x-4">
+            <a href="#" class="text-white/70 hover:text-primary transition-colors">
+              <i class="fa fa-weixin text-xl"></i>
+            </a>
+            <a href="#" class="text-white/70 hover:text-primary transition-colors">
+              <i class="fa fa-weibo text-xl"></i>
+            </a>
+            <a href="#" class="text-white/70 hover:text-primary transition-colors">
+              <i class="fa fa-qq text-xl"></i>
+            </a>
+            <a href="#" class="text-white/70 hover:text-primary transition-colors">
+              <i class="fa fa-youtube-play text-xl"></i>
+            </a>
+          </div>
+        </div>
+        
+        <div>
+          <h3 class="text-xl font-bold mb-4">快速链接</h3>
+          <ul class="space-y-2">
+            <li><a href="#home" class="text-white/70 hover:text-primary transition-colors">首页</a></li>
+            <li><a href="#history" class="text-white/70 hover:text-primary transition-colors">历史沿革</a></li>
+            <li><a href="#chinese-history" class="text-white/70 hover:text-primary transition-colors">华夏五千年</a></li>
+            <li><a href="#achievements" class="text-white/70 hover:text-primary transition-colors">国家成就</a></li>
+            <li><a href="#quotes" class="text-white/70 hover:text-primary transition-colors">爱国名言</a></li>
+            <li><a href="#contact" class="text-white/70 hover:text-primary transition-colors">联系我们</a></li>
+          </ul>
+        </div>
+        
+        <div>
+          <h3 class="text-xl font-bold mb-4">爱国资源</h3>
+          <ul class="space-y-2">
+            <li><a href="#" class="text-white/70 hover:text-primary transition-colors">爱国主义教育基地</a></li>
+            <li><a href="#" class="text-white/70 hover:text-primary transition-colors">红色旅游景点</a></li>
+            <li><a href="#" class="text-white/70 hover:text-primary transition-colors">爱国主题影片</a></li>
+            <li><a href="#" class="text-white/70 hover:text-primary transition-colors">爱国教育书籍</a></li>
+            <li><a href="#" class="text-white/70 hover:text-primary transition-colors">爱国人物事迹</a></li>
+          </ul>
+        </div>
+        
+        <div>
+          <h3 class="text-xl font-bold mb-4">联系我们</h3>
+          <ul class="space-y-3">
+            <li class="flex items-start">
+              <i class="fa fa-map-marker text-primary mt-1 mr-3"></i>
+              <span class="text-white/70">重庆人科-管理学院-人力</span>
+            </li>
+            <li class="flex items-start">
+              <i class="fa fa-phone text-primary mt-1 mr-3"></i>
+              <span class="text-white/70">+86 12345678</span>
+            </li>
+            <li class="flex items-start">
+              <i class="fa fa-envelope text-primary mt-1 mr-3"></i>
+              <span class="text-white/70">xiaoma248@163.com</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+      
+      <div class="border-t border-white/10 pt-8">
+        <div class="flex flex-col md:flex-row justify-between items-center">
+          <p class="text-white/50 mb-4 md:mb-0">
+            &copy; 2025 我爱我的祖国 - 爱国主义主题网站. 保留所有权利.
+          </p>
+          <div class="flex space-x-6">
+            <a href="#" class="text-white/50 hover:text-primary transition-colors">隐私政策</a>
+            <a href="#" class="text-white/50 hover:text-primary transition-colors">使用条款</a>
+            <a href="#" class="text-white/50 hover:text-primary transition-colors">网站地图</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- 返回顶部按钮 -->
+  <button id="backToTop" class="fixed bottom-8 right-8 bg-primary hover:bg-primary/90 text-white rounded-full w-12 h-12 flex items-center justify-center shadow-lg transform hover:-translate-y-1 transition-all duration-300 opacity-0 invisible">
+    <i class="fa fa-arrow-up"></i>
+  </button>
+
+  <script src="js/main.js"></script>
+  <script src="js/data.js"></script>
+</body>
+</html>
